@@ -1,4 +1,4 @@
-const FORM_URL = "https://google.com";
+const FORM_URL = "https://forms.gle/Uvm3EYhH5xeEFsFa7";
 
 const body = document.body;
 const progressBar = document.querySelector(".scroll-progress");
