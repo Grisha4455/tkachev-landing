@@ -1052,7 +1052,7 @@ select {
 }
 
 .hero-screen-three::after {
-  background-image: url("images/scrin3.jpg");
+  background-image: url("images/scrin 5.jpg");
   transform: translate(16px, 18px) rotate(3deg);
 }
 
