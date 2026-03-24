@@ -734,6 +734,19 @@ select {
   z-index: 0;
 }
 
+.hero-shopify-logo {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: 256px;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+  pointer-events: none;
+  top: 9%;
+  right: 8%;
+}
+
 .hero-screen-backdrop {
   position: absolute;
   inset: 0;
@@ -1027,8 +1040,8 @@ select {
 
 .hero-screen-three {
   right: 4%;
-  bottom: 8%;
-  width: clamp(290px, 27vw, 390px);
+  bottom: 4%;
+  width: clamp(320px, 30vw, 430px);
   transform: rotate(4deg);
   animation: none;
   opacity: 0.68;
@@ -1041,6 +1054,24 @@ select {
 .hero-screen-three::after {
   background-image: url("images/scrin3.jpg");
   transform: translate(16px, 18px) rotate(3deg);
+}
+
+.hero-screen-four {
+  left: 2%;
+  bottom: 20%;
+  width: clamp(270px, 25vw, 350px);
+  transform: rotate(-8deg);
+  animation: none;
+  opacity: 0.9;
+}
+
+.hero-screen-four::before {
+  transform: translate(12px, 14px) rotate(-4deg);
+}
+
+.hero-screen-four::after {
+  background-image: url("images/scrin 4.jpg");
+  transform: translate(14px, 16px) rotate(-4deg);
 }
 
 @keyframes heroScreenFloatOne {
@@ -2277,6 +2308,14 @@ select {
     height: 84%;
   }
 
+  .hero-shopify-logo {
+    width: 140px;
+    top: 2%;
+    left: 11%;
+    right: auto;
+    filter: none;
+  }
+
   .hero-screen-backdrop {
     position: absolute;
     inset: 0;
@@ -2306,7 +2345,8 @@ select {
 
   .hero-screen-one,
   .hero-screen-two,
-  .hero-screen-three {
+  .hero-screen-three,
+  .hero-screen-four {
     animation: none;
     right: auto;
   }
@@ -2379,13 +2419,24 @@ select {
 
   .hero-screen-three {
     display: block;
-    left: 10%;
+    left: 7%;
     right: auto;
     top: auto;
-    bottom: 18%;
-    width: clamp(236px, 56vw, 312px);
+    bottom: 4%;
+    width: clamp(292px, 68vw, 384px);
     transform: rotate(-4deg);
     opacity: 0.93;
+    z-index: 2;
+  }
+
+  .hero-screen-four {
+    left: 18%;
+    right: auto;
+    top: auto;
+    bottom: 30%;
+    width: clamp(282px, 66vw, 356px);
+    transform: rotate(6deg);
+    opacity: 0.9;
     z-index: 2;
   }
 
@@ -2548,6 +2599,13 @@ select {
     transform: translateX(12%) translateY(-14%) scale(1.22);
   }
 
+  .hero-shopify-logo {
+    width: 124px;
+    top: 1%;
+    left: 10%;
+    right: auto;
+  }
+
   .hero-screen-one {
     left: -3%;
     top: 17%;
@@ -2562,10 +2620,16 @@ select {
   }
 
   .hero-screen-three {
-    left: 10%;
+    left: 7%;
     right: auto;
-    bottom: 16%;
-    width: clamp(202px, 50vw, 258px);
+    bottom: 4%;
+    width: clamp(244px, 60vw, 314px);
+  }
+
+  .hero-screen-four {
+    left: 19%;
+    bottom: 29%;
+    width: clamp(236px, 58vw, 300px);
   }
 
   .hero-screen {
@@ -2746,6 +2810,13 @@ select {
     transform: translateX(8%) translateY(-13%) scale(1.12);
   }
 
+  .hero-shopify-logo {
+    width: 110px;
+    top: 1%;
+    left: 10%;
+    right: auto;
+  }
+
   .hero-screen-one {
     left: -2%;
     top: 18%;
@@ -2760,10 +2831,16 @@ select {
   }
 
   .hero-screen-three {
-    left: 9%;
+    left: 6%;
     right: auto;
-    bottom: 16%;
-    width: min(100%, 186px);
+    bottom: 4%;
+    width: min(100%, 224px);
+  }
+
+  .hero-screen-four {
+    left: 18%;
+    bottom: 30%;
+    width: min(100%, 242px);
   }
 
   .hero-screen-lens-one,
@@ -2952,6 +3029,13 @@ select {
     min-height: clamp(520px, 40vw, 640px);
   }
 
+  .hero-shopify-logo {
+    width: clamp(148px, 11.6vw, 184px);
+    top: 1.5%;
+    left: 4%;
+    right: auto;
+  }
+
   .hero-portrait-image {
     width: 100%;
     max-width: none;
@@ -2975,7 +3059,7 @@ select {
     left: 1%;
     right: auto;
     top: 22%;
-    width: clamp(230px, 21vw, 310px);
+    width: clamp(300px, 27vw, 400px);
     transform: rotate(-6deg);
     opacity: 0.88;
   }
@@ -3021,10 +3105,18 @@ select {
   .hero-screen-three {
     right: 5%;
     left: auto;
-    bottom: 16%;
-    width: clamp(250px, 23vw, 340px);
+    bottom: 10%;
+    width: clamp(282px, 26vw, 376px);
     transform: rotate(6deg);
     opacity: 0.7;
+  }
+
+  .hero-screen-four {
+    left: -4%;
+    bottom: 16%;
+    width: clamp(315px, 28vw, 422px);
+    transform: rotate(-8deg);
+    opacity: 0.84;
   }
 }
 
@@ -3149,6 +3241,13 @@ select {
     border-radius: 28px;
   }
 
+  .hero-shopify-logo {
+    width: clamp(134px, 12.6vw, 162px);
+    top: 1.5%;
+    left: 4%;
+    right: auto;
+  }
+
   .hero-portrait-image {
     width: 100%;
     max-width: none;
@@ -3167,16 +3266,24 @@ select {
     left: -3%;
     right: auto;
     top: 24%;
-    width: clamp(155px, 17vw, 200px);
+    width: clamp(202px, 22vw, 260px);
     transform: rotate(-6deg);
   }
 
   .hero-screen-three {
     right: 4%;
     left: auto;
-    bottom: 14%;
-    width: clamp(170px, 19vw, 225px);
+    bottom: 10%;
+    width: clamp(194px, 21vw, 252px);
     transform: rotate(6deg);
+  }
+
+  .hero-screen-four {
+    left: -4%;
+    bottom: 15%;
+    width: clamp(228px, 25vw, 292px);
+    transform: rotate(-7deg);
+    opacity: 0.88;
   }
 
   .hero-jump-nav {
