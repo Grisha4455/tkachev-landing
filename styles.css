@@ -2258,7 +2258,7 @@ select {
   }
 
   .hero-portrait-shell {
-    min-height: 620px;
+    min-height: 560px;
     border-radius: 32px;
     padding: 0 12px 0 6px;
     background:
@@ -2268,11 +2268,11 @@ select {
   }
 
   .hero-portrait-shell::before {
-    inset: 8% 12% 14% 3%;
+    inset: 4% 12% 10% 3%;
   }
 
   .hero-portrait-glow {
-    inset: auto auto 4% 2%;
+    inset: auto auto 2% 2%;
     width: 84%;
     height: 84%;
   }
@@ -2284,7 +2284,7 @@ select {
   }
 
   .hero-screen-backdrop::before {
-    inset: 5% 5% 10%;
+    inset: 2% 5% 8%;
     opacity: 0.66;
     mask-image: radial-gradient(circle at 28% 46%, rgba(0, 0, 0, 0.95), transparent 88%);
   }
@@ -2299,7 +2299,7 @@ select {
     width: 100%;
     max-width: none;
     margin-left: 0;
-    transform: translateX(16%) translateY(-11%) scale(1.36);
+    transform: translateX(16%) translateY(-15%) scale(1.3);
     transform-origin: left bottom;
     z-index: 5;
   }
@@ -2314,8 +2314,8 @@ select {
   .hero-screen-one {
     left: -4%;
     right: auto;
-    top: 22%;
-    width: clamp(224px, 55vw, 288px);
+    top: 16%;
+    width: clamp(250px, 62vw, 332px);
     transform: rotate(-7deg);
     z-index: 1;
   }
@@ -2323,8 +2323,8 @@ select {
   .hero-screen-two {
     left: auto;
     right: 6%;
-    top: 9%;
-    width: clamp(182px, 43vw, 232px);
+    top: 4%;
+    width: clamp(212px, 50vw, 278px);
     transform: rotate(8deg);
     opacity: 0.94;
     z-index: 2;
@@ -2382,8 +2382,8 @@ select {
     left: 10%;
     right: auto;
     top: auto;
-    bottom: 16%;
-    width: clamp(214px, 50vw, 264px);
+    bottom: 18%;
+    width: clamp(236px, 56vw, 312px);
     transform: rotate(-4deg);
     opacity: 0.93;
     z-index: 2;
@@ -2540,32 +2540,32 @@ select {
   }
 
   .hero-portrait-shell {
-    min-height: 570px;
+    min-height: 520px;
     padding: 0 10px 0 4px;
   }
 
   .hero-portrait-image {
-    transform: translateX(12%) translateY(-10%) scale(1.28);
+    transform: translateX(12%) translateY(-14%) scale(1.22);
   }
 
   .hero-screen-one {
     left: -3%;
-    top: 22%;
-    width: clamp(194px, 49vw, 234px);
+    top: 17%;
+    width: clamp(216px, 54vw, 274px);
   }
 
   .hero-screen-two {
     left: auto;
     right: 6%;
-    top: 10%;
-    width: clamp(154px, 38vw, 194px);
+    top: 5%;
+    width: clamp(182px, 45vw, 232px);
   }
 
   .hero-screen-three {
     left: 10%;
     right: auto;
-    bottom: 14%;
-    width: clamp(184px, 44vw, 224px);
+    bottom: 16%;
+    width: clamp(202px, 50vw, 258px);
   }
 
   .hero-screen {
@@ -2738,32 +2738,32 @@ select {
   }
 
   .hero-portrait-shell {
-    min-height: 510px;
+    min-height: 470px;
     padding: 0 8px 0 2px;
   }
 
   .hero-portrait-image {
-    transform: translateX(8%) translateY(-9%) scale(1.18);
+    transform: translateX(8%) translateY(-13%) scale(1.12);
   }
 
   .hero-screen-one {
     left: -2%;
-    top: 23%;
-    width: min(100%, 164px);
+    top: 18%;
+    width: min(100%, 194px);
   }
 
   .hero-screen-two {
     left: auto;
     right: 6%;
-    top: 10%;
-    width: min(100%, 134px);
+    top: 5%;
+    width: min(100%, 160px);
   }
 
   .hero-screen-three {
     left: 9%;
     right: auto;
-    bottom: 13%;
-    width: min(100%, 156px);
+    bottom: 16%;
+    width: min(100%, 186px);
   }
 
   .hero-screen-lens-one,
