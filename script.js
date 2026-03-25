@@ -14,6 +14,7 @@ const sections = Array.from(document.querySelectorAll("main section[id]"));
 const serviceTriggers = Array.from(document.querySelectorAll("[data-service-trigger]"));
 const serviceSections = Array.from(document.querySelectorAll("[data-service-section]"));
 const serviceSectionIds = new Set(serviceSections.map((section) => section.id));
+const partnershipCarousel = document.querySelector("[data-carousel]");
 
 function closeMenu() {
   if (!siteNav || !menuToggle) {
@@ -123,6 +124,71 @@ if (serviceSections.length > 0) {
     trigger.classList.remove("is-active");
     trigger.removeAttribute("aria-current");
   });
+}
+
+if (partnershipCarousel) {
+  const track = partnershipCarousel.querySelector("[data-carousel-track]");
+  const prevButton = partnershipCarousel.querySelector("[data-carousel-prev]");
+  const nextButton = partnershipCarousel.querySelector("[data-carousel-next]");
+  const dots = Array.from(partnershipCarousel.querySelectorAll("[data-carousel-dot]"));
+  const slides = Array.from(track?.children || []);
+  let activeIndex = 0;
+  let autoplayId = null;
+
+  function updateCarousel(index) {
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    activeIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === activeIndex);
+      dot.setAttribute("aria-current", dotIndex === activeIndex ? "true" : "false");
+    });
+  }
+
+  function startAutoplay() {
+    if (slides.length <= 1) {
+      return;
+    }
+
+    stopAutoplay();
+    autoplayId = window.setInterval(() => {
+      updateCarousel(activeIndex + 1);
+    }, 4000);
+  }
+
+  function stopAutoplay() {
+    if (autoplayId) {
+      window.clearInterval(autoplayId);
+      autoplayId = null;
+    }
+  }
+
+  prevButton?.addEventListener("click", () => {
+    updateCarousel(activeIndex - 1);
+    startAutoplay();
+  });
+
+  nextButton?.addEventListener("click", () => {
+    updateCarousel(activeIndex + 1);
+    startAutoplay();
+  });
+
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      updateCarousel(dotIndex);
+      startAutoplay();
+    });
+  });
+
+  partnershipCarousel.addEventListener("mouseenter", stopAutoplay);
+  partnershipCarousel.addEventListener("mouseleave", startAutoplay);
+
+  updateCarousel(0);
+  startAutoplay();
 }
 
 faqItems.forEach((item) => {
