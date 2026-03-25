@@ -1,6 +1,6 @@
 :root {
   --bg: #eef6ee;
-  --bg-alt: #f2f3f5;
+  --bg-alt: #f3f5fa;
   --surface: rgba(255, 255, 255, 0.86);
   --surface-strong: #ffffff;
   --surface-soft: #dcebdc;
@@ -34,7 +34,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   color: var(--text);
-  background: #f2f3f5;
+  background: #f3f5fa;
   overflow-x: hidden;
 }
 
@@ -90,7 +90,7 @@ select {
 }
 
 .alt-section {
-  background: #f2f3f5;
+  background: #f3f5fa;
 }
 
 .scroll-progress {
@@ -1771,7 +1771,7 @@ select {
 
 .selection-section,
 .final-cta {
-  background: #f2f3f5;
+  background: #f3f5fa;
 }
 
 .selection-inner {
@@ -1868,7 +1868,7 @@ select {
 .site-footer {
   padding: 34px 0 110px;
   border-top: 1px solid var(--line);
-  background: #f2f3f5;
+  background: #f3f5fa;
 }
 
 .footer-grid {
