@@ -4,12 +4,10 @@ const body = document.body;
 const progressBar = document.querySelector(".scroll-progress");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
-const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#'], .footer-nav a[href^='#']"));
+const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
 const headerLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
-const faqItems = document.querySelectorAll(".faq-item");
 const formLinks = document.querySelectorAll("[data-form-link]");
 const revealItems = document.querySelectorAll(".reveal");
-const countupItems = document.querySelectorAll("[data-countup]");
 const sections = Array.from(document.querySelectorAll("main section[id]"));
 const serviceTriggers = Array.from(document.querySelectorAll("[data-service-trigger]"));
 const serviceSections = Array.from(document.querySelectorAll("[data-service-section]"));
@@ -190,32 +188,6 @@ if (partnershipCarousel) {
   updateCarousel(0);
 }
 
-faqItems.forEach((item) => {
-  const question = item.querySelector(".faq-question");
-
-  if (!question) {
-    return;
-  }
-
-  question.addEventListener("click", () => {
-    const isOpen = item.classList.contains("is-open");
-
-    faqItems.forEach((faqItem) => {
-      const button = faqItem.querySelector(".faq-question");
-      faqItem.classList.remove("is-open");
-
-      if (button) {
-        button.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    if (!isOpen) {
-      item.classList.add("is-open");
-      question.setAttribute("aria-expanded", "true");
-    }
-  });
-});
-
 formLinks.forEach((link) => {
   link.setAttribute("href", FORM_URL);
   link.setAttribute("target", "_blank");
@@ -245,47 +217,6 @@ const revealObserver = new IntersectionObserver(
 
 revealItems.forEach((item) => {
   revealObserver.observe(item);
-});
-
-function animateCount(element) {
-  const target = Number(element.dataset.target || 0);
-  const suffix = element.dataset.suffix || "";
-  const prefix = element.dataset.prefix || "";
-  const duration = 1200;
-  const start = performance.now();
-
-  function update(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const value = Math.floor(progress * target);
-    element.textContent = `${prefix}${value}${suffix}`;
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-      return;
-    }
-
-    element.textContent = `${prefix}${target}${suffix}`;
-  }
-
-  requestAnimationFrame(update);
-}
-
-const countObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateCount(entry.target);
-        countObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.6,
-  }
-);
-
-countupItems.forEach((item) => {
-  countObserver.observe(item);
 });
 
 function updateScrollProgress() {
