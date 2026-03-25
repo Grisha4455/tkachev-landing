@@ -36,9 +36,9 @@
         <a href="#partnership">Партнерство</a>
         <a href="#payments">Платежные системы</a>
         <a href="#private-chat">Закрытый чат</a>
-        <a href="#results">Результаты</a>
-        <a href="#consultation">Консультация</a>
-        <a class="btn btn-primary btn-small" href="#selection">Подать заявку</a>
+        <a href="#results" hidden>Результаты</a>
+        <a href="#consultation" hidden>Консультация</a>
+        <a class="btn btn-primary btn-small" data-form-link href="#">Подать заявку</a>
       </nav>
     </div>
   </header>
@@ -58,7 +58,7 @@
             </h1>
           </div>
 
-          <div class="hero-copy-bottom reveal">
+          <div class="hero-copy-bottom reveal" hidden>
             <p class="lead">
               Это не курс и не общий менторинг. Это курируемое Shopify-партнерство с готовым магазином,
               платежной инфраструктурой и поддержкой на старте.
@@ -87,7 +87,7 @@
             </div>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#selection">Подать заявку на партнерство</a>
+              <a class="btn btn-primary" data-form-link href="#">Подать заявку на партнерство</a>
               <a class="btn btn-secondary" href="#partnership">Узнать больше</a>
             </div>
           </div>
@@ -108,14 +108,18 @@
         </div>
 
         <nav class="hero-jump-nav reveal" aria-label="Быстрая навигация по разделам">
-          <a href="#partnership">Shopify партнерство</a>
-          <a href="#private-chat">Закрытый чат</a>
-          <a href="#payments">Платежные системы</a>
+          <div class="hero-jump-intro">
+            <span class="hero-jump-caption">Наши услуги</span>
+            <p>Жми, чтобы узнать подробности</p>
+          </div>
+          <a class="is-active" data-service-trigger="partnership" href="#partnership">Shopify партнерство</a>
+          <a data-service-trigger="private-chat" href="#private-chat">Закрытый чат</a>
+          <a data-service-trigger="payments" href="#payments">Платежные системы</a>
         </nav>
       </div>
     </section>
 
-    <section class="section" id="partnership">
+    <section class="section service-section" id="partnership" data-service-section hidden>
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">Партнерство</span>
@@ -288,7 +292,7 @@
       </div>
     </section>
 
-    <section class="section alt-section" id="payments">
+    <section class="section alt-section service-section" id="payments" data-service-section hidden>
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">Платежные системы</span>
@@ -365,7 +369,7 @@
       </div>
     </section>
 
-    <section class="section" id="private-chat">
+    <section class="section service-section" id="private-chat" data-service-section hidden>
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">Закрытый чат</span>
@@ -537,7 +541,7 @@
       </div>
     </section>
 
-    <section class="section alt-section" id="results">
+    <section class="section alt-section" id="results" hidden>
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">Результаты</span>
@@ -626,7 +630,7 @@
       </div>
     </section>
 
-    <section class="section" id="consultation">
+    <section class="section" id="consultation" hidden>
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">Консультация</span>
@@ -705,7 +709,7 @@
       </div>
     </section>
 
-    <section class="section selection-section" id="selection">
+    <section class="section selection-section" id="selection" hidden>
       <div class="glow glow-center"></div>
       <div class="container selection-inner">
         <div class="section-heading centered reveal">
@@ -764,7 +768,7 @@
       </div>
     </section>
 
-    <section class="section final-cta">
+    <section class="section final-cta" hidden>
       <div class="glow glow-center"></div>
       <div class="container final-inner">
         <div class="section-heading centered reveal">
@@ -802,13 +806,13 @@
         <a href="#partnership">Партнерство</a>
         <a href="#payments">Платежные системы</a>
         <a href="#private-chat">Закрытый чат</a>
-        <a href="#results">Результаты</a>
-        <a href="#consultation">Консультация</a>
-        <a href="#selection">Подать заявку</a>
+        <a href="#results" hidden>Результаты</a>
+        <a href="#consultation" hidden>Консультация</a>
+        <a data-form-link href="#">Подать заявку</a>
       </nav>
 
       <div class="footer-action">
-        <a class="btn btn-primary btn-small" href="#selection">Подать заявку</a>
+        <a class="btn btn-primary btn-small" data-form-link href="#">Подать заявку</a>
       </div>
     </div>
 
@@ -818,8 +822,6 @@
       <a href="#">Публичная оферта</a>
     </div>
   </footer>
-
-  <a class="floating-cta" href="#selection">Подать заявку</a>
 
   <script src="script.js"></script>
 </body>

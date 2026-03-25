@@ -316,6 +316,7 @@ select {
   justify-self: center;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 16px;
   width: 100%;
   margin-top: -28px;
@@ -368,21 +369,35 @@ select {
   justify-content: center;
   gap: 12px;
   min-width: 0;
-  color: var(--accent-dark);
+  color: var(--accent);
   font-family: "Montserrat", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: none;
 }
 
 .hero-jump-caption::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(63, 151, 80, 1) 0%, rgba(63, 151, 80, 0.22) 72%, transparent 100%);
-  box-shadow: 0 0 18px rgba(63, 151, 80, 0.4);
+  display: none;
+  content: none;
+}
+
+.hero-jump-intro {
+  position: relative;
+  z-index: 1;
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.hero-jump-intro p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
 }
 
 .hero-jump-nav a {
@@ -391,21 +406,21 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0;
   min-height: 62px;
   padding: 14px 18px;
-  border: 1px solid rgba(63, 151, 80, 0.12);
+  border: 1px solid rgba(63, 151, 80, 0.22);
   border-radius: 20px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 247, 0.78));
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(234, 248, 236, 0.96) 48%, rgba(215, 241, 219, 0.92));
   color: var(--text);
   font-family: "Montserrat", sans-serif;
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: 1.18rem;
+  font-weight: 800;
   letter-spacing: 0.01em;
   box-shadow:
-    0 16px 28px rgba(24, 49, 35, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 18px 32px rgba(24, 49, 35, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -415,14 +430,45 @@ select {
   overflow: hidden;
 }
 
+.hero-jump-nav a:first-of-type {
+  border-color: rgba(39, 111, 52, 0.28);
+  background: linear-gradient(135deg, #71d467 0%, #389f4f 50%, #1f6d39 100%);
+  color: #ffffff;
+  text-shadow:
+    0 1px 0 rgba(9, 27, 15, 0.35),
+    0 2px 8px rgba(9, 27, 15, 0.28);
+  box-shadow:
+    0 20px 34px rgba(63, 151, 80, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.hero-jump-nav a:nth-of-type(2) {
+  border-color: rgba(63, 151, 80, 0.22);
+  background: linear-gradient(135deg, #8fdf84 0%, #55b468 48%, #2d8048 100%);
+  color: #ffffff;
+  text-shadow:
+    0 1px 0 rgba(9, 27, 15, 0.34),
+    0 2px 8px rgba(9, 27, 15, 0.26);
+  box-shadow:
+    0 18px 32px rgba(63, 151, 80, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.hero-jump-nav a:nth-of-type(3) {
+  border-color: rgba(63, 151, 80, 0.22);
+  background: linear-gradient(135deg, #8fdf84 0%, #55b468 48%, #2d8048 100%);
+  color: #ffffff;
+  text-shadow:
+    0 1px 0 rgba(9, 27, 15, 0.34),
+    0 2px 8px rgba(9, 27, 15, 0.26);
+  box-shadow:
+    0 18px 32px rgba(63, 151, 80, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
 .hero-jump-nav a::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), rgba(63, 151, 80, 0.32));
-  box-shadow: 0 0 14px rgba(63, 151, 80, 0.3);
+  display: none;
+  content: none;
 }
 
 .hero-jump-nav a::after {
@@ -437,16 +483,66 @@ select {
 .hero-jump-nav a:hover,
 .hero-jump-nav a:focus-visible {
   transform: translateY(-4px) scale(1.02);
-  border-color: rgba(63, 151, 80, 0.26);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(235, 247, 236, 0.92));
+  border-color: rgba(63, 151, 80, 0.34);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(226, 245, 229, 0.98) 46%, rgba(196, 234, 202, 0.94));
   color: var(--accent-dark);
   box-shadow:
-    0 22px 38px rgba(24, 49, 35, 0.1),
-    0 0 0 1px rgba(63, 151, 80, 0.08);
+    0 22px 38px rgba(24, 49, 35, 0.12),
+    0 0 0 1px rgba(63, 151, 80, 0.1);
+}
+
+.hero-jump-nav a.is-active,
+.hero-jump-nav a[aria-current="true"] {
+  transform: translateY(-2px);
+  border-color: rgba(63, 151, 80, 0.34);
+  box-shadow:
+    0 22px 38px rgba(24, 49, 35, 0.12),
+    0 0 0 2px rgba(63, 151, 80, 0.12);
+}
+
+.hero-jump-nav a:first-of-type:hover,
+.hero-jump-nav a:first-of-type:focus-visible {
+  border-color: rgba(39, 111, 52, 0.36);
+  background: linear-gradient(135deg, #82df78 0%, #40a856 50%, #216f3c 100%);
+  color: #ffffff;
+  box-shadow:
+    0 24px 40px rgba(63, 151, 80, 0.28),
+    0 0 0 1px rgba(63, 151, 80, 0.12);
+}
+
+.hero-jump-nav a:nth-of-type(2):hover,
+.hero-jump-nav a:nth-of-type(2):focus-visible {
+  border-color: rgba(63, 151, 80, 0.32);
+  background: linear-gradient(135deg, #9be692 0%, #5cbc70 46%, #30864b 100%);
+  color: #ffffff;
+}
+
+.hero-jump-nav a:nth-of-type(3):hover,
+.hero-jump-nav a:nth-of-type(3):focus-visible {
+  border-color: rgba(63, 151, 80, 0.3);
+  background: linear-gradient(135deg, #9be692 0%, #5cbc70 46%, #30864b 100%);
+  color: #ffffff;
+}
+
+.hero-jump-nav a.is-active,
+.hero-jump-nav a.is-active:hover,
+.hero-jump-nav a.is-active:focus-visible,
+.hero-jump-nav a[aria-current="true"],
+.hero-jump-nav a[aria-current="true"]:hover,
+.hero-jump-nav a[aria-current="true"]:focus-visible {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(63, 151, 80, 0.38);
+  background: linear-gradient(135deg, #ffffff 0%, #f6fff5 46%, #e4f8e7 100%);
+  color: var(--accent-dark);
+  text-shadow: none;
+  box-shadow:
+    0 24px 42px rgba(24, 49, 35, 0.12),
+    0 0 0 2px rgba(63, 151, 80, 0.14);
 }
 
 .hero-jump-nav a:hover::after,
-.hero-jump-nav a:focus-visible::after {
+.hero-jump-nav a:focus-visible::after,
+.hero-jump-nav a.is-active::after {
   transform: translateX(130%);
 }
 
@@ -1877,6 +1973,12 @@ select {
   background: #f6f7fb;
 }
 
+.footer-action .btn,
+.footer-action .btn:hover,
+.footer-action .btn:focus-visible {
+  color: #ffffff;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr auto;
@@ -1914,22 +2016,7 @@ select {
 }
 
 .floating-cta {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 25;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 14px 24px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #8cdd85, var(--accent));
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.92rem;
-  font-weight: 800;
-  box-shadow: 0 18px 34px rgba(63, 151, 80, 0.24);
+  display: none;
 }
 
 .glow {
@@ -2282,14 +2369,23 @@ select {
 
   .hero-jump-caption {
     gap: 8px;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-jump-intro {
+    gap: 6px;
+  }
+
+  .hero-jump-intro p {
+    font-size: 0.84rem;
+    line-height: 1.45;
   }
 
   .hero-jump-nav a {
     min-height: 56px;
     padding: 12px 14px;
-    font-size: 0.92rem;
+    font-size: 1.1rem;
     border-radius: 18px;
     width: 100%;
   }
@@ -2764,13 +2860,17 @@ select {
   }
 
   .hero-jump-caption {
-    font-size: 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .hero-jump-intro p {
+    font-size: 0.78rem;
   }
 
   .hero-jump-nav a {
     min-height: 50px;
     padding: 10px 11px;
-    font-size: 0.82rem;
+    font-size: 0.98rem;
   }
 
   .stat-card,
@@ -2978,13 +3078,17 @@ select {
   }
 
   .hero-jump-caption {
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
+    font-size: 1.12rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-jump-intro p {
+    font-size: 0.76rem;
   }
 
   .hero-jump-nav a {
     min-height: 48px;
-    font-size: 0.84rem;
+    font-size: 1rem;
   }
 
   .eyebrow {
@@ -3088,13 +3192,22 @@ select {
   }
 
   .hero-jump-caption {
-    font-size: 0.9rem;
+    font-size: 2.2rem;
+  }
+
+  .hero-jump-intro {
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .hero-jump-intro p {
+    font-size: 0.96rem;
   }
 
   .hero-jump-nav a {
     min-height: 74px;
     padding: 18px 22px;
-    font-size: 1.08rem;
+    font-size: 1.3rem;
     border-radius: 22px;
   }
 

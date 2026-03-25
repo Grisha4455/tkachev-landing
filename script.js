@@ -11,6 +11,9 @@ const formLinks = document.querySelectorAll("[data-form-link]");
 const revealItems = document.querySelectorAll(".reveal");
 const countupItems = document.querySelectorAll("[data-countup]");
 const sections = Array.from(document.querySelectorAll("main section[id]"));
+const serviceTriggers = Array.from(document.querySelectorAll("[data-service-trigger]"));
+const serviceSections = Array.from(document.querySelectorAll("[data-service-section]"));
+const serviceSectionIds = new Set(serviceSections.map((section) => section.id));
 
 function closeMenu() {
   if (!siteNav || !menuToggle) {
@@ -40,10 +43,87 @@ if (menuToggle && siteNav) {
 }
 
 navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href")?.replace("#", "");
+
+    if (targetId && serviceSectionIds.has(targetId)) {
+      event.preventDefault();
+      setActiveService(targetId);
+    }
+
     closeMenu();
   });
 });
+
+function setActiveService(targetId, { scroll = true } = {}) {
+  const targetSection = serviceSections.find((section) => section.id === targetId);
+
+  if (!targetSection) {
+    return;
+  }
+
+  serviceSections.forEach((section) => {
+    section.hidden = section.id !== targetId;
+  });
+
+  serviceTriggers.forEach((trigger) => {
+    const isActive = trigger.dataset.serviceTrigger === targetId;
+    trigger.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      trigger.setAttribute("aria-current", "true");
+      return;
+    }
+
+    trigger.removeAttribute("aria-current");
+  });
+
+  if (scroll) {
+    targetSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  updateActiveSection();
+}
+
+function syncServiceTriggerState(targetId) {
+  if (!targetId || !serviceSectionIds.has(targetId)) {
+    return;
+  }
+
+  serviceTriggers.forEach((trigger) => {
+    const isActive = trigger.dataset.serviceTrigger === targetId;
+    trigger.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      trigger.setAttribute("aria-current", "true");
+      return;
+    }
+
+    trigger.removeAttribute("aria-current");
+  });
+}
+
+serviceTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeMenu();
+    setActiveService(trigger.dataset.serviceTrigger);
+  });
+});
+
+if (serviceSections.length > 0) {
+  serviceSections.forEach((section) => {
+    section.hidden = true;
+  });
+
+  serviceTriggers.forEach((trigger) => {
+    trigger.classList.remove("is-active");
+    trigger.removeAttribute("aria-current");
+  });
+}
 
 faqItems.forEach((item) => {
   const question = item.querySelector(".faq-question");
@@ -158,6 +238,10 @@ function updateActiveSection() {
   let currentId = "";
 
   sections.forEach((section) => {
+    if (section.hidden) {
+      return;
+    }
+
     if (offset >= section.offsetTop) {
       currentId = section.id;
     }
@@ -167,6 +251,8 @@ function updateActiveSection() {
     const isActive = link.getAttribute("href") === `#${currentId}`;
     link.classList.toggle("is-active", isActive);
   });
+
+  syncServiceTriggerState(currentId);
 }
 
 window.addEventListener("scroll", () => {
