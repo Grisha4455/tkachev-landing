@@ -133,7 +133,8 @@ if (partnershipCarousel) {
   const dots = Array.from(partnershipCarousel.querySelectorAll("[data-carousel-dot]"));
   const slides = Array.from(track?.children || []);
   let activeIndex = 0;
-  let autoplayId = null;
+  let touchStartX = 0;
+  let touchDeltaX = 0;
 
   function updateCarousel(index) {
     if (!track || slides.length === 0) {
@@ -149,46 +150,44 @@ if (partnershipCarousel) {
     });
   }
 
-  function startAutoplay() {
-    if (slides.length <= 1) {
-      return;
-    }
-
-    stopAutoplay();
-    autoplayId = window.setInterval(() => {
-      updateCarousel(activeIndex + 1);
-    }, 4000);
-  }
-
-  function stopAutoplay() {
-    if (autoplayId) {
-      window.clearInterval(autoplayId);
-      autoplayId = null;
-    }
-  }
-
   prevButton?.addEventListener("click", () => {
     updateCarousel(activeIndex - 1);
-    startAutoplay();
   });
 
   nextButton?.addEventListener("click", () => {
     updateCarousel(activeIndex + 1);
-    startAutoplay();
   });
 
   dots.forEach((dot, dotIndex) => {
     dot.addEventListener("click", () => {
       updateCarousel(dotIndex);
-      startAutoplay();
     });
   });
 
-  partnershipCarousel.addEventListener("mouseenter", stopAutoplay);
-  partnershipCarousel.addEventListener("mouseleave", startAutoplay);
+  partnershipCarousel.addEventListener("touchstart", (event) => {
+    touchStartX = event.touches[0]?.clientX || 0;
+    touchDeltaX = 0;
+  }, { passive: true });
+
+  partnershipCarousel.addEventListener("touchmove", (event) => {
+    const currentX = event.touches[0]?.clientX || 0;
+    touchDeltaX = currentX - touchStartX;
+  }, { passive: true });
+
+  partnershipCarousel.addEventListener("touchend", () => {
+    if (Math.abs(touchDeltaX) < 40) {
+      return;
+    }
+
+    if (touchDeltaX < 0) {
+      updateCarousel(activeIndex + 1);
+      return;
+    }
+
+    updateCarousel(activeIndex - 1);
+  });
 
   updateCarousel(0);
-  startAutoplay();
 }
 
 faqItems.forEach((item) => {

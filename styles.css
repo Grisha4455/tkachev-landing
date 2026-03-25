@@ -1541,6 +1541,76 @@ select {
   background: var(--accent);
 }
 
+.private-chat-simple-heading {
+  max-width: 860px;
+}
+
+.private-chat-simple-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.private-chat-simple-card h3 {
+  margin: 0 0 18px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  line-height: 1.1;
+}
+
+.payments-simple-heading {
+  max-width: 860px;
+}
+
+.payments-simple-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.payments-simple-card h3 {
+  margin: 0 0 18px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+  line-height: 1.1;
+}
+
+.payments-simple-note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.payments-simple-pricing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.payments-simple-price-card {
+  padding: 30px;
+}
+
+.payments-simple-price-card h3 {
+  margin: 0 0 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.2;
+}
+
+.payments-simple-price-card strong {
+  display: block;
+  color: var(--accent);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
 .image-placeholder {
   min-height: 520px;
   border-radius: 34px;
@@ -2463,6 +2533,16 @@ select {
 }
 
 @media (max-width: 720px) {
+  .payments-simple-pricing {
+    grid-template-columns: 1fr;
+  }
+
+  .payments-simple-card,
+  .payments-simple-price-card,
+  .private-chat-simple-card {
+    padding: 22px;
+  }
+
   .partnership-feature-grid,
   .partnership-timeline,
   .partnership-phase-grid,
@@ -3004,6 +3084,12 @@ select {
 }
 
 @media (max-width: 560px) {
+  .payments-simple-card,
+  .payments-simple-price-card,
+  .private-chat-simple-card {
+    padding: 18px;
+  }
+
   .partnership-hero-panel,
   .partnership-phase-card,
   .partnership-info-card,
