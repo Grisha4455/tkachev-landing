@@ -495,8 +495,13 @@ select {
   color: var(--accent);
 }
 
+.hero-content h1 .hero-title-line {
+  color: var(--text);
+}
+
 .hero-content h1 span {
   display: block;
+  white-space: nowrap;
 }
 
 .lead,
@@ -3046,8 +3051,9 @@ select {
   }
 
   .hero-content h1 span {
-    display: inline;
-    margin-left: 0.12em;
+    display: block;
+    margin-left: 0;
+    white-space: nowrap;
   }
 
   .hero-visual {
