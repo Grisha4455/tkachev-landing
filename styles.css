@@ -1,6 +1,6 @@
 :root {
   --bg: #eef6ee;
-  --bg-alt: #ffffff;
+  --bg-alt: #f2f3f5;
   --surface: rgba(255, 255, 255, 0.86);
   --surface-strong: #ffffff;
   --surface-soft: #dcebdc;
@@ -34,10 +34,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top right, rgba(63, 151, 80, 0.18), transparent 22%),
-    radial-gradient(circle at bottom left, rgba(95, 183, 109, 0.18), transparent 24%),
-    linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  background: #f2f3f5;
   overflow-x: hidden;
 }
 
@@ -93,7 +90,7 @@ select {
 }
 
 .alt-section {
-  background: rgba(237, 247, 237, 0.78);
+  background: #f2f3f5;
 }
 
 .scroll-progress {
@@ -687,6 +684,36 @@ select {
   max-width: 860px;
   padding: 0;
   overflow: visible;
+}
+
+.hero-composite-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+  isolation: auto;
+}
+
+.hero-composite-shell::before {
+  display: none;
+  content: none;
+}
+
+.hero-composite-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: none;
 }
 
 .hero-portrait-shell {
@@ -1751,9 +1778,7 @@ select {
 
 .selection-section,
 .final-cta {
-  background:
-    radial-gradient(circle at center, rgba(63, 151, 80, 0.14), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(243, 251, 243, 0.96));
+  background: #f2f3f5;
 }
 
 .selection-inner {
@@ -1850,7 +1875,7 @@ select {
 .site-footer {
   padding: 34px 0 110px;
   border-top: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.88);
+  background: #f2f3f5;
 }
 
 .footer-grid {
@@ -1988,6 +2013,15 @@ select {
     margin-top: -48px;
   }
 
+  .hero-composite-shell {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hero-composite-image {
+    max-width: 500px;
+  }
+
   .hero-portrait-shell {
     min-height: 760px;
   }
@@ -2117,6 +2151,15 @@ select {
     margin-top: -36px;
     justify-content: center;
     justify-self: center;
+  }
+
+  .hero-composite-shell {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hero-composite-image {
+    max-width: 100%;
   }
 
   .hero-screen {
@@ -2578,6 +2621,11 @@ select {
     overflow-wrap: anywhere;
   }
 
+  .hero-composite-shell {
+    padding: 0;
+    border-radius: 0;
+  }
+
   .eyebrow {
     font-size: 0.62rem;
     padding: 8px 12px;
@@ -2801,6 +2849,11 @@ select {
     letter-spacing: -0.02em;
   }
 
+  .hero-composite-shell {
+    padding: 0;
+    border-radius: 0;
+  }
+
   .hero-portrait-shell {
     min-height: 470px;
     padding: 0 8px 0 2px;
@@ -3002,6 +3055,14 @@ select {
 
   .hero-visual-frame {
     max-width: 680px;
+  }
+
+  .hero-composite-shell {
+    min-height: 0;
+  }
+
+  .hero-composite-image {
+    max-width: 540px;
   }
 
   .hero-jump-nav {
@@ -3234,6 +3295,15 @@ select {
   .hero-visual-frame {
     max-width: 500px;
     margin: 0;
+  }
+
+  .hero-composite-shell {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hero-composite-image {
+    max-width: 100%;
   }
 
   .hero-portrait-shell {
