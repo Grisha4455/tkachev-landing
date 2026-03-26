@@ -1739,6 +1739,7 @@ select {
 }
 
 .partnership-summary-box {
+  margin-bottom: 12px;
   padding: 26px 28px;
   border: 1px solid rgba(63, 151, 80, 0.12);
   background:
