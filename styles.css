@@ -1566,26 +1566,29 @@ select {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 18px;
+  justify-items: center;
 }
 
 .partnership-video-card {
   max-width: 780px;
   width: 100%;
   margin: 0 auto;
-  padding: 12px;
-  border: 1px solid rgba(63, 151, 80, 0.12);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 20px 40px rgba(24, 49, 35, 0.08);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .partnership-video {
   display: block;
-  width: 100%;
+  width: calc(100% + 4px);
   aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  background: #dfe5df;
-  object-fit: cover;
+  border: 0;
+  margin: 0 0 0 -2px;
+  border-radius: 0;
+  background: #fff;
 }
 
 .partnership-final-group .callout-box {
@@ -2195,12 +2198,14 @@ select {
 
   .partnership-video-card {
     max-width: 100%;
-    padding: 10px;
-    border-radius: 22px;
+    padding: 0;
+    border-radius: 0;
   }
 
   .partnership-video {
-    border-radius: 16px;
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    border-radius: 0;
   }
 
   .partnership-hero-actions {
