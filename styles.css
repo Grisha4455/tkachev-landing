@@ -1558,6 +1558,10 @@ select {
   margin-bottom: 16px;
 }
 
+.partnership-video-grid + .partnership-partners-results-heading {
+  margin-top: 26px;
+}
+
 .partnership-partners-results-heading h2 {
   font-size: clamp(1.6rem, 2.8vw, 2.3rem);
 }
