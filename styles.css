@@ -1554,6 +1554,40 @@ select {
   margin-top: 0;
 }
 
+.partnership-partners-results-heading {
+  margin-bottom: 16px;
+}
+
+.partnership-partners-results-heading h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+}
+
+.partnership-video-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.partnership-video-card {
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px solid rgba(63, 151, 80, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 40px rgba(24, 49, 35, 0.08);
+}
+
+.partnership-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  background: #dfe5df;
+  object-fit: cover;
+}
+
 .partnership-final-group .callout-box {
   margin-top: 0;
 }
@@ -2157,6 +2191,16 @@ select {
   .partnership-info-card,
   .partnership-final-card {
     padding: 22px;
+  }
+
+  .partnership-video-card {
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .partnership-video {
+    border-radius: 16px;
   }
 
   .partnership-hero-actions {
