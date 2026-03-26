@@ -13,6 +13,7 @@ const serviceTriggers = Array.from(document.querySelectorAll("[data-service-trig
 const serviceSections = Array.from(document.querySelectorAll("[data-service-section]"));
 const serviceSectionIds = new Set(serviceSections.map((section) => section.id));
 const partnershipCarousel = document.querySelector("[data-carousel]");
+const previewVideos = Array.from(document.querySelectorAll("[data-video-preview]"));
 
 function closeMenu() {
   if (!siteNav || !menuToggle) {
@@ -217,6 +218,50 @@ const revealObserver = new IntersectionObserver(
 
 revealItems.forEach((item) => {
   revealObserver.observe(item);
+});
+
+previewVideos.forEach((video) => {
+  const previewTime = 0.01;
+
+  const preparePreviewFrame = () => {
+    if (video.dataset.previewPrepared === "true") {
+      return;
+    }
+
+    video.dataset.previewPrepared = "true";
+
+    const targetTime = Number.isFinite(video.duration) && video.duration > previewTime
+      ? previewTime
+      : 0;
+
+    if (targetTime === 0) {
+      return;
+    }
+
+    const handleSeeked = () => {
+      video.pause();
+    };
+
+    video.addEventListener("seeked", handleSeeked, { once: true });
+
+    try {
+      video.currentTime = targetTime;
+    } catch (_error) {
+      // Ignore browsers that block programmatic seek before interaction.
+    }
+  };
+
+  if (video.readyState >= 2) {
+    preparePreviewFrame();
+  } else {
+    video.addEventListener("loadeddata", preparePreviewFrame, { once: true });
+  }
+
+  video.addEventListener("play", () => {
+    if (video.currentTime <= 0.06) {
+      video.currentTime = 0;
+    }
+  }, { once: true });
 });
 
 function updateScrollProgress() {
