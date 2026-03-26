@@ -1583,12 +1583,17 @@ select {
 
 .partnership-video {
   display: block;
-  width: calc(100% + 4px);
+  width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
-  margin: 0 0 0 -2px;
+  margin: 0;
   border-radius: 0;
-  background: #fff;
+  background: #000;
+  object-fit: cover;
+}
+
+.partnership-store-example-heading {
+  margin-top: 22px;
 }
 
 .partnership-final-group .callout-box {
@@ -2203,8 +2208,8 @@ select {
   }
 
   .partnership-video {
-    width: calc(100% + 48px);
-    margin-left: -24px;
+    width: 100%;
+    margin-left: 0;
     border-radius: 0;
   }
 
